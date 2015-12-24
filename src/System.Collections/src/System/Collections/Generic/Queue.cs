@@ -11,6 +11,7 @@
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 namespace System.Collections.Generic
 {
@@ -132,7 +133,7 @@ namespace System.Collections.Generic
 
             if (arrayIndex < 0 || arrayIndex > array.Length)
             {
-                throw new ArgumentOutOfRangeException("arrayIndex", SR.ArgumentOutOfRange_Index);
+                throw new ArgumentOutOfRangeException("arrayIndex", SR.Format(SR.ArgumentOutOfRange_Index, arrayIndex));
             }
 
             int arrayLen = array.Length;
@@ -173,7 +174,7 @@ namespace System.Collections.Generic
             int arrayLen = array.Length;
             if (index < 0 || index > arrayLen)
             {
-                throw new ArgumentOutOfRangeException("index", SR.ArgumentOutOfRange_Index);
+                throw new ArgumentOutOfRangeException("index", SR.Format(SR.ArgumentOutOfRange_Index, index));
             }
 
             if (arrayLen - index < _size)

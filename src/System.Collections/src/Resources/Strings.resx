@@ -208,7 +208,7 @@
     <value>Count must be positive and count must refer to a location within the string/array/collection.</value>
   </data>
   <data name="ArgumentOutOfRange_Index" xml:space="preserve">
-    <value>Index was out of range. Must be non-negative and less than the size of the collection.</value>
+    <value>Index {0} is out of range. Must be non-negative and less than the size of the collection.</value>
   </data>
   <data name="ArgumentOutOfRange_ListInsert" xml:space="preserve">
     <value>Index must be within the bounds of the List.</value>

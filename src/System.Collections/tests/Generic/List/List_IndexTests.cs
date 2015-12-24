@@ -872,6 +872,17 @@ namespace List_List_IndexTests
             IntDriver.LastIndexOfValidations(intArr1);
             StringDriver.LastIndexOfValidations(stringArr1);
         }
+
+        [Fact]
+        public static void IndexOf_Exception()
+        {
+            List<int> IntDriver = new List<int>();
+            for (int i = 0; i < 10; i++)
+                IntDriver.Add(i);
+
+            var exception = Assert.Throws<ArgumentOutOfRangeException>(() => IntDriver[11]);
+            Assert.Contains("11", exception.Message);
+        }
     }
 
     #region Helper Classes

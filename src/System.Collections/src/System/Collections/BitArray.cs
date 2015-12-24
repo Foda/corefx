@@ -3,6 +3,7 @@
 
 using System;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 
 namespace System.Collections
 {
@@ -202,7 +203,7 @@ namespace System.Collections
         {
             if (index < 0 || index >= Length)
             {
-                throw new ArgumentOutOfRangeException("index", SR.ArgumentOutOfRange_Index);
+                throw new ArgumentOutOfRangeException("index", SR.Format(SR.ArgumentOutOfRange_Index, index));
             }
             Contract.EndContractBlock();
 
@@ -219,7 +220,7 @@ namespace System.Collections
         {
             if (index < 0 || index >= Length)
             {
-                throw new ArgumentOutOfRangeException("index", SR.ArgumentOutOfRange_Index);
+                throw new ArgumentOutOfRangeException("index", SR.Format(SR.ArgumentOutOfRange_Index, index));
             }
             Contract.EndContractBlock();
 

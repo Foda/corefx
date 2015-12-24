@@ -7,6 +7,7 @@ using System.Runtime.Versioning;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Collections.ObjectModel;
+using System.Globalization;
 
 namespace System.Collections.Generic
 {
@@ -184,7 +185,7 @@ namespace System.Collections.Generic
                 // Following trick can reduce the range check by one
                 if ((uint)index >= (uint)_size)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("index", SR.Format(SR.ArgumentOutOfRange_Index, index));
                 }
                 Contract.EndContractBlock();
                 return _items[index];
@@ -194,7 +195,7 @@ namespace System.Collections.Generic
             {
                 if ((uint)index >= (uint)_size)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("index", SR.Format(SR.ArgumentOutOfRange_Index, index));
                 }
                 Contract.EndContractBlock();
                 _items[index] = value;
@@ -496,7 +497,7 @@ namespace System.Collections.Generic
         {
             if ((uint)startIndex > (uint)_size)
             {
-                throw new ArgumentOutOfRangeException("startIndex", SR.ArgumentOutOfRange_Index);
+                throw new ArgumentOutOfRangeException("startIndex", SR.Format(SR.ArgumentOutOfRange_Index, startIndex));
             }
 
             if (count < 0 || startIndex > _size - count)
@@ -567,7 +568,7 @@ namespace System.Collections.Generic
                 // Special case for 0 length List
                 if (startIndex != -1)
                 {
-                    throw new ArgumentOutOfRangeException("startIndex", SR.ArgumentOutOfRange_Index);
+                    throw new ArgumentOutOfRangeException("startIndex", SR.Format(SR.ArgumentOutOfRange_Index, startIndex));
                 }
             }
             else
@@ -575,7 +576,7 @@ namespace System.Collections.Generic
                 // Make sure we're not out of range            
                 if ((uint)startIndex >= (uint)_size)
                 {
-                    throw new ArgumentOutOfRangeException("startIndex", SR.ArgumentOutOfRange_Index);
+                    throw new ArgumentOutOfRangeException("startIndex", SR.Format(SR.ArgumentOutOfRange_Index, startIndex));
                 }
             }
 
@@ -701,7 +702,7 @@ namespace System.Collections.Generic
         public int IndexOf(T item, int index)
         {
             if (index > _size)
-                throw new ArgumentOutOfRangeException("index", SR.ArgumentOutOfRange_Index);
+                throw new ArgumentOutOfRangeException("index", SR.Format(SR.ArgumentOutOfRange_Index, index));
             Contract.Ensures(Contract.Result<int>() >= -1);
             Contract.Ensures(Contract.Result<int>() < Count);
             Contract.EndContractBlock();
@@ -720,7 +721,7 @@ namespace System.Collections.Generic
         public int IndexOf(T item, int index, int count)
         {
             if (index > _size)
-                throw new ArgumentOutOfRangeException("index", SR.ArgumentOutOfRange_Index);
+                throw new ArgumentOutOfRangeException("index", SR.Format(SR.ArgumentOutOfRange_Index, index));
 
             if (count < 0 || index > _size - count)
                 throw new ArgumentOutOfRangeException("count", SR.ArgumentOutOfRange_Count);
@@ -782,7 +783,7 @@ namespace System.Collections.Generic
 
             if ((uint)index > (uint)_size)
             {
-                throw new ArgumentOutOfRangeException("index", SR.ArgumentOutOfRange_Index);
+                throw new ArgumentOutOfRangeException("index", SR.Format(SR.ArgumentOutOfRange_Index, index));
             }
             Contract.EndContractBlock();
 
@@ -862,7 +863,7 @@ namespace System.Collections.Generic
         public int LastIndexOf(T item, int index)
         {
             if (index >= _size)
-                throw new ArgumentOutOfRangeException("index", SR.ArgumentOutOfRange_Index);
+                throw new ArgumentOutOfRangeException("index", SR.Format(SR.ArgumentOutOfRange_Index, index));
             Contract.Ensures(Contract.Result<int>() >= -1);
             Contract.Ensures(((Count == 0) && (Contract.Result<int>() == -1)) || ((Count > 0) && (Contract.Result<int>() <= index)));
             Contract.EndContractBlock();
